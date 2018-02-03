@@ -20,6 +20,8 @@ pipeline{
         sh 'git pull'
         echo "checkout master"
         sh "git checkout master"
+        echo "pull latest from master"
+	sh 'git pull'
         echo "merging development into master"
         sh 'git merge development'
         echo "Pushing to remote"
