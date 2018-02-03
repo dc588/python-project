@@ -19,7 +19,11 @@ pipeline{
         echo "pull latest changes"
         sh 'git pull'
         echo "checkout master"
+<<<<<<< HEAD
         sh 'git checkout master'
+=======
+        sh "git checkout master"
+>>>>>>> master
         echo "pull latest from master"
 	sh 'git pull'
         echo "merging development into master"
@@ -33,7 +37,11 @@ pipeline{
         branch 'master'
       }
       steps{
+<<<<<<< HEAD
         sh "if ![ -d  '/var/www/html/green']; then mkdir /var/www/html/green; fi"
+=======
+        sh "if ![-d  '/var/www/html/green'];then mkdir /var/www/html/green; fi"
+>>>>>>> master
         sh "cp logs/myOutFile.txt /var/www/html/green"
       }
     }
