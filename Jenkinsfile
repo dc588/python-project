@@ -33,7 +33,7 @@ pipeline{
         branch 'master'
       }
       steps{
-        sh "if ![-d  '/var/www/html/green'];then mkdir /var/www/html/green; fi"
+        sh "if ![ -d  '/var/www/html/green']; then mkdir /var/www/html/green; fi"
         sh "cp logs/myOutFile.txt /var/www/html/green"
       }
     }
