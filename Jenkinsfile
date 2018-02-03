@@ -3,7 +3,7 @@ pipeline{
   stages{
 
     stage ('python-project'){
-      step{
+      steps{
         sh 'python newfile.py'
       }
     }
