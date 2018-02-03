@@ -19,7 +19,6 @@ pipeline{
         echo "pull latest changes"
         sh 'git pull'
         echo "checkout master"
-        sh 'git checkout master'
         echo "pull latest from master"
         echo "merging development into master"
         echo "Pushing to remote"
