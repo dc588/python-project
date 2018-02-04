@@ -5,6 +5,10 @@ pipeline{
     stage ('python-project'){
       steps{
         sh 'python newfile.py'
+	echo "ID"
+	sh 'id'
+	echo "PWD"
+	sh 'pwd'
       }
     }
     stage('merge development to master'){
@@ -18,15 +22,18 @@ pipeline{
         sh 'git checkout development'
         echo "pull latest changes"
         sh 'git pull'
+<<<<<<< HEAD
         echo "checkout master"
         sh 'git checkout master'
         sh "git checkout master"
+=======
+>>>>>>> development
         echo "pull latest from master"
-	sh 'git pull'
+	sh 'git checkout master'
         echo "merging development into master"
-        sh 'git merge development'
+	sh 'git merge development'
         echo "Pushing to remote"
-        sh 'git push origin'
+	sh 'git push origin master'
       }
     }
     stage('promote to green'){
