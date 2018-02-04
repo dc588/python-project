@@ -23,8 +23,11 @@ pipeline{
         echo "pull latest changes"
         sh 'git pull'
         echo "pull latest from master"
+	sh 'git checkout master'
         echo "merging development into master"
+	sh 'git merge development'
         echo "Pushing to remote"
+	sh 'git push origin master'
       }
     }
     stage('promote to green'){
@@ -32,9 +35,9 @@ pipeline{
         branch 'master'
       }
       steps{
-        sh "if ![ -d  '/var/www/html/green']; then mkdir /var/www/html/green; fi"
-        sh "if ![-d  '/var/www/html/green'];then mkdir /var/www/html/green; fi"
-        sh "cp logs/myOutFile.txt /var/www/html/green"
+        sh 'if ![ -d  '/var/www/html/green']; then mkdir /var/www/html/green; fi'
+        sh 'if ![-d  '/var/www/html/green'];then mkdir /var/www/html/green; fi'
+        sh 'cp logs/myOutFile.txt /var/www/html/green'
       }
     }
   }
