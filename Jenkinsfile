@@ -5,6 +5,10 @@ pipeline{
     stage ('python-project'){
       steps{
         sh 'python newfile.py'
+	echo "ID"
+	sh 'id'
+	echo "PWD"
+	sh 'pwd'
       }
     }
     stage('merge development to master'){
