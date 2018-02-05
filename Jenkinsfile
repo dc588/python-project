@@ -54,8 +54,8 @@ pipeline{
       steps{
 
         sh """
-        if [ ! -d "/var/www/html/green" ];then mkdir /var/www/html/green;fi
-        cp logs/myOutFile.txt /var/www/html/green
+        if [ ! -d "/var/www/html/green" ];then sudo mkdir /var/www/html/green;fi
+        sudo cp logs/myOutFile.txt /var/www/html/green
         """
       }
     }
