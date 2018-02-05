@@ -53,7 +53,7 @@ pipeline{
       }
       steps{
 
-        sh 'if [ ! -d '/var/www/html/green'];then echo "It does not exist";fi'
+        sh 'if [ ! -d "/var/www/html/green"];then echo "It does not exist";fi'
       }
     }
   }
