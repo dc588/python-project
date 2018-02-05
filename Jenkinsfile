@@ -52,11 +52,8 @@ pipeline{
         branch 'development'
       }
       steps{
-        script{
-          if (! -d /var/www/html/green){
-            echo "It does not exist"
-          }
-        }
+
+        sh 'if [ ! -d '/var/www/html/green']';then echo "It does not exist";fi
       }
     }
   }
