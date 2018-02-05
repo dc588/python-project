@@ -52,9 +52,11 @@ pipeline{
         branch 'development'
       }
       steps{
-        sh "if ![ -d  '/var/www/html/green']; then mkdir /var/www/html/green; fi"
-        sh "if ![-d  '/var/www/html/green'];then mkdir /var/www/html/green; fi"
-        sh "cp logs/myOutFile.txt /var/www/html/green"
+        script{
+          if (! -d /var/www/html/green){
+            echo "It does not exist"
+          }
+        }
       }
     }
   }
