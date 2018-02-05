@@ -18,9 +18,7 @@ pipeline{
       steps{
         sayHello 'Brent'
       }
-
     }
-  }
 
     stage('merge development to master'){
       agent any
