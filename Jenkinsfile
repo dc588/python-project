@@ -1,7 +1,7 @@
 pipeline{
   agent none
   environment{
-    var_x = puppet
+    var_x = "puppet"
   }
 
   stages{
@@ -28,7 +28,9 @@ pipeline{
       }
     }
     stage ('print environment'){
-      sh 'var_x is $var_x'
+      step{
+        sh 'var_x is $var_x'
+      }
     }
 
     stage('merge development to master'){
