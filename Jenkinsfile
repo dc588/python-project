@@ -52,12 +52,17 @@ pipeline{
         branch 'development'
       }
       steps{
-        script{
-          if (! -d /var/www/html/green){
-            echo "It does not exist"
-          }
-        }
+
+        sh """
+        if [ ! -d "/var/www/html/green" ];then sudo mkdir /var/www/html/green;fi
+        sudo cp logs/myOutFile.txt /var/www/html/green
+        """
       }
+    }
+  }
+  post{
+    always{
+      archiveArtifacts artifacts: 'logs/*.txt', fingerprint: true
     }
   }
 }
