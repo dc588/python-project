@@ -11,6 +11,11 @@ pipeline{
           echo "PWD"
           sh 'pwd'
       }
+      post{
+        always{
+          archiveArtifacts artifacts: "logs/*.txt", fingerprint: true
+        }
+      }
     }
 
     stage ('sayHello'){
@@ -58,11 +63,6 @@ pipeline{
         sudo cp logs/myOutFile.txt /var/www/html/green
         """
       }
-    }
-  }
-  post{
-    always{
-      archiveArtifacts artifacts: "logs/*.txt", fingerprint: true
     }
   }
 }
