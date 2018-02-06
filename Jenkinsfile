@@ -29,6 +29,7 @@ pipeline{
       }
     }
     stage ('env'){
+      agent any
       steps{
         sh 'var_x is $var_x'
       }
