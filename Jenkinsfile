@@ -1,5 +1,9 @@
 pipeline{
+  environment{
+    var_x = "puppet"
+  }
   agent none
+
 
   stages{
     stage ('python-project'){
@@ -22,6 +26,12 @@ pipeline{
       agent any
       steps{
         sayHello 'Brent'
+      }
+    }
+    stage ('env'){
+      agent any
+      steps{
+        sh 'echo "var_x is $var_x"'
       }
     }
 
