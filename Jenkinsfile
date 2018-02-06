@@ -27,8 +27,8 @@ pipeline{
         sayHello 'Brent'
       }
     }
-    stage ('print environment'){
-      step{
+    stage ('env'){
+      steps{
         sh 'var_x is $var_x'
       }
     }
