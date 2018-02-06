@@ -60,4 +60,9 @@ pipeline{
       }
     }
   }
+  post{
+    always{
+      archiveartifacts artifacts: 'logs/*.txt', fingerprint: true
+    }
+  }
 }
