@@ -1,5 +1,8 @@
 pipeline{
   agent none
+  environment{
+    var_x = puppet
+  }
 
   stages{
     stage ('python-project'){
@@ -23,6 +26,9 @@ pipeline{
       steps{
         sayHello 'Brent'
       }
+    }
+    stage ('print environment'){
+      sh 'var_x is $var_x'
     }
 
     stage('merge development to master'){
