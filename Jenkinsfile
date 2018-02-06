@@ -1,8 +1,9 @@
 pipeline{
-  agent none
   environment{
     var_x = "puppet"
   }
+  agent none
+
 
   stages{
     stage ('python-project'){
