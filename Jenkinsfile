@@ -62,7 +62,7 @@ pipeline{
   }
   post{
     always{
-      archiveartifacts artifacts: 'logs/*.txt', fingerprint: true
+      archiveArtifacts artifacts: 'logs/*.txt', fingerprint: true
     }
   }
 }
