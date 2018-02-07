@@ -75,6 +75,7 @@ pipeline{
       }
     }
     stage('run-parallel-branches'){
+      agent any
       steps{
         parallel(
           a:{
