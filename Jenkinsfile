@@ -79,11 +79,33 @@ pipeline{
         parallel(
           a:{
             echo "This is branch a"
+            sh 'hostname'
           },
           b:{
             echo "This is branch b"
+            sh 'hostname'
           }
         )
+      }
+    }
+    stage('run-parallel-on-different-nodes'){
+      parallel{
+        stage ('run on master'){
+          agent{
+            label 'apache'
+          }
+          steps{
+            sh 'hostname'
+          }
+        }
+        stage('run on slave'){
+          agent{
+            label 'Linux'
+          }
+          steps{
+            sh 'hostname'
+          }
+        }
       }
     }
   }
