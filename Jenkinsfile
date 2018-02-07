@@ -74,7 +74,7 @@ pipeline{
             label 'apache'
           }
           steps{
-            sh 'hostname'
+            sh 'echo `hostname`'
           }
         }
         stage('run on slave'){
@@ -82,7 +82,7 @@ pipeline{
             label 'Linux'
           }
           steps{
-            sh 'hostname'
+            sh 'echo `hostname`'
           }
         }
       }
