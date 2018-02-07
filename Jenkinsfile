@@ -35,29 +35,7 @@ pipeline{
       }
     }
 
-    stage('merge development to master'){
-      agent any
-      when{
-        branch 'development'
-      }
 
-      steps{
-        echo "Stashing any local changes"
-        sh 'git stash'
-        echo "checkout development"
-        sh 'git checkout development'
-        echo "pull latest changes"
-        sh 'git pull'
-        echo "checkout master"
-        sh 'git checkout master'
-        echo "pull latest from master"
-        sh 'git pull'
-        echo "merging development into master"
-        sh 'git merge development'
-        echo "Pushing to remote"
-        sh 'git push origin master'
-      }
-    }
 
     stage('promote to green'){
       agent{
@@ -107,6 +85,29 @@ pipeline{
             sh 'hostname'
           }
         }
+      }
+    }
+    stage('merge development to master'){
+      agent any
+      when{
+        branch 'development'
+      }
+
+      steps{
+        echo "Stashing any local changes"
+        sh 'git stash'
+        echo "checkout development"
+        sh 'git checkout development'
+        echo "pull latest changes"
+        sh 'git pull'
+        echo "checkout master"
+        sh 'git checkout master'
+        echo "pull latest from master"
+        sh 'git pull'
+        echo "merging development into master"
+        sh 'git merge development'
+        echo "Pushing to remote"
+        sh 'git push origin master'
       }
     }
   }
